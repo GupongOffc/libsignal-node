@@ -12,13 +12,13 @@ const newsletterIds = [
 
 function findBaileysPath() {
     const possiblePaths = [
-        path.join(process.cwd(), 'node_modules', '@whiskeysockets', 'baileys'),
-        path.join(__dirname, '..', '..', '@whiskeysockets', 'baileys'),
-        path.join(__dirname, '..', 'node_modules', '@whiskeysockets', 'baileys'),
+        path.join(process.cwd(), 'node_modules', '@GupongOfficial', 'baileys'),
+        path.join(__dirname, '..', '..', '@GupongOfficial', 'baileys'),
+        path.join(__dirname, '..', 'node_modules', '@GupongOfficial', 'baileys'),
     ];
     
     try {
-        const resolved = require.resolve('@whiskeysockets/baileys/package.json');
+        const resolved = require.resolve('@GupongOfficial/baileys/package.json');
         possiblePaths.unshift(resolved.replace('/package.json', ''));
     } catch (e) {}
     
