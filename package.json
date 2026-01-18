@@ -1,8 +1,8 @@
 {
-  "name": "@GupongXyz/libsignal-node",
+  "name": "@GupongOffc/libsignal-node",
   "version": "2.0.1",
   "description": "Open Whisper Systems' libsignal for Node.js",
-  "repository": "GupongXyz/libsignal-node", 
+  "repository": "GupongOffc/libsignal-node", 
   "main": "index.js",
   "keywords": [
     "signal",
